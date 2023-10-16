@@ -23,7 +23,7 @@ input, textarea, button, select {
 
 .library-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
 }
 
 .book-card {
@@ -32,4 +32,8 @@ input, textarea, button, select {
   color: white;
   padding: 1.5rem;
   margin: 2rem;
+}
+
+.heading {
+  margin: 2rem 0 0 3rem;
 }
