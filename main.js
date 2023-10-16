@@ -6,11 +6,11 @@ const myLibrary = [gameOfThrones, dune, animalFarm];
 
 let libraryContainer = document.querySelector('.library-container');
 
-function Book(title, author, pages, readStatus) {
+function Book(title, author, pages, haveRead) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.readStatus = readStatus;
+  this.haveRead = haveRead;
 }
 
 function addBookToLibrary() {
@@ -21,6 +21,7 @@ function displayBooks() {
   myLibrary.forEach((book) => {
     
     let cardContainer = document.createElement('div');
+    cardContainer.classList.add("book-card");
     let bookTitle = document.createElement('h2');
     let bookAuthor = document.createElement('p');
     let bookPages = document.createElement('p');
@@ -37,7 +38,7 @@ function displayBooks() {
     bookAuthor.textContent = book.author;
     bookPages.textContent = book.pages;
     
-    if (book.readStatus === true) {
+    if (book.haveRead === true) {
       bookStatus.checked = true;
     }
 
