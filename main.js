@@ -25,21 +25,26 @@ function displayBooks() {
     let bookTitle = document.createElement('h2');
     let bookAuthor = document.createElement('p');
     let bookPages = document.createElement('p');
-    let bookStatus = document.createElement('input');
-    bookStatus.setAttribute('type', 'checkbox');
+    let readLabel = document.createElement('label');
+    let readStatus = document.createElement('input');
+    readStatus.setAttribute('type', 'checkbox');
 
     libraryContainer.appendChild(cardContainer);
     cardContainer.appendChild(bookTitle);
     cardContainer.appendChild(bookAuthor);   
     cardContainer.appendChild(bookPages);
-    cardContainer.appendChild(bookStatus);
+    cardContainer.appendChild(readLabel);
+    cardContainer.appendChild(readStatus);
 
     bookTitle.textContent = book.title;
-    bookAuthor.textContent = book.author;
-    bookPages.textContent = book.pages;
+    bookAuthor.textContent = 'Author: ' + book.author;
+    bookPages.textContent = 'Pages: ' + book.pages;
+    readStatus.setAttribute('id', bookTitle.textContent.toLowerCase().replaceAll(' ', '-'));
+    readLabel.textContent = 'Read: ';
+    readLabel.htmlFor = bookTitle.textContent.toLowerCase().replaceAll(' ', '-');
     
     if (book.haveRead === true) {
-      bookStatus.checked = true;
+      readStatus.checked = true;
     }
 
   })
