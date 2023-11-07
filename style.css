@@ -21,6 +21,18 @@ input, textarea, button, select {
   font: inherit;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: max(30%, 400px);
+}
+
+.new-book-button {
+  align-self: flex-end;
+  font-size: 1.35rem;
+  padding: 2px 5px;
+}
+
 .library-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
