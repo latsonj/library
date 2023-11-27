@@ -4,6 +4,10 @@ const animalFarm = new Book('Animal Farm', 'George Orwell', 140, false);
 
 const myLibrary = [gameOfThrones, dune, animalFarm];
 
+const addBookButton = document.querySelector('.add-book-button');
+const closeButton = document.querySelector('.close-dialog-button');
+const submitButton = document.querySelector('.submit-button');
+const dialog = document.querySelector('dialog');
 let libraryContainer = document.querySelector('.library-container');
 
 function Book(title, author, pages, haveRead) {
@@ -50,4 +54,15 @@ function displayBooks() {
   })
 }
 
+function showModal() {
+  dialog.showModal();
+}
+
+function closeModal() {
+  dialog.close();
+}
+
+submitButton.addEventListener('click', (event) => event.preventDefault());
+addBookButton.addEventListener('click', showModal);
+closeButton.addEventListener('click', closeModal);
 displayBooks();
