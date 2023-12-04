@@ -37,12 +37,12 @@ dialog {
   margin: auto;
 }
 
-
-dialog label {
-  width: 7ch;
-  display: inline-block;
+dialog p:not(p:last-of-type) {
+  display: flex;
+  flex-direction: column;
 }
 
+dialog p:last-of-type,
 dialog p {
   padding: 1rem;
 }
