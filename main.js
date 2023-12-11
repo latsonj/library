@@ -1,8 +1,5 @@
-const dune = new Book('Dune', 'Frank Herbert', 896, true);
-const gameOfThrones = new Book('A Game of Thrones', 'George R. R. Martin', 694, false);
-const animalFarm = new Book('Animal Farm', 'George Orwell', 140, false);
-
-const myLibrary = [gameOfThrones, dune, animalFarm];
+// Library array to loop books from
+const myLibrary = [];
 
 const addBookButton = document.querySelector('.add-book-button');
 const closeButton = document.querySelector('.close-dialog-button');
@@ -10,17 +7,27 @@ const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('dialog');
 let libraryContainer = document.querySelector('.library-container');
 
+// Book constructor
 function Book(title, author, pages, haveRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.haveRead = haveRead;
+  this.title = title.value;
+  this.author = author.value;
+  this.pages = pages.value;
+  this.haveRead = haveRead.value;
 }
 
+// Submit button magic
 function addBookToLibrary() {
+  let userTitle = document.querySelector('#book-title');
+  let userAuthor = document.querySelector('#book-author');
+  let userPages = document.querySelector('#book-pages'); 
+  let userReadStatus = document.querySelector('#read-status');
 
+  myLibrary.push(new Book(userTitle, userAuthor, userPages, userReadStatus));
+  console.log(myLibrary);
+  displayBooks();
 }
 
+// Loops through array and displays book objects on webpage
 function displayBooks() {
   myLibrary.forEach((book) => {
     
@@ -54,6 +61,7 @@ function displayBooks() {
   })
 }
 
+// Modal functions
 function showModal() {
   dialog.showModal();
 }
@@ -66,3 +74,5 @@ submitButton.addEventListener('click', (event) => event.preventDefault());
 addBookButton.addEventListener('click', showModal);
 closeButton.addEventListener('click', closeModal);
 displayBooks();
+
+submitButton.addEventListener('click', addBookToLibrary);
