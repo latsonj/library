@@ -38,7 +38,7 @@ function displayBooks() {
     
     let cardContainer = document.createElement('div');
     cardContainer.classList.add('book-card');
-    cardContainer.setAttribute('data-index', myLibrary.length);
+    cardContainer.setAttribute('data-index', myLibrary.indexOf(book) + 1);
     let bookTitle = document.createElement('h2');
     let bookAuthor = document.createElement('p');
     let bookPages = document.createElement('p');
