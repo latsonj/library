@@ -12,7 +12,7 @@ function Book(title, author, pages, haveRead) {
   this.title = title.value;
   this.author = author.value;
   this.pages = pages.value;
-  this.haveRead = haveRead.value;
+  this.haveRead = haveRead.checked;
 }
 
 // Submit button magic
@@ -25,6 +25,7 @@ function addBookToLibrary() {
   myLibrary.push(new Book(userTitle, userAuthor, userPages, userReadStatus));
   console.log(myLibrary);
   displayBooks();
+  dialog.close();
 }
 
 // Loops through array and displays book objects on webpage
@@ -32,7 +33,8 @@ function displayBooks() {
   myLibrary.forEach((book) => {
     
     let cardContainer = document.createElement('div');
-    cardContainer.classList.add("book-card");
+    cardContainer.classList.add('book-card');
+    cardContainer.setAttribute('data-index', myLibrary.length);
     let bookTitle = document.createElement('h2');
     let bookAuthor = document.createElement('p');
     let bookPages = document.createElement('p');
@@ -57,7 +59,6 @@ function displayBooks() {
     if (book.haveRead === true) {
       readStatus.checked = true;
     }
-
   })
 }
 
