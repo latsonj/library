@@ -24,12 +24,16 @@ function addBookToLibrary() {
 
   myLibrary.push(new Book(userTitle, userAuthor, userPages, userReadStatus));
   console.log(myLibrary);
+  console.log(libraryContainer);
   displayBooks();
   dialog.close();
 }
 
 // Loops through array and displays book objects on webpage
 function displayBooks() {
+
+  deleteLibraryItems();
+
   myLibrary.forEach((book) => {
     
     let cardContainer = document.createElement('div');
@@ -60,6 +64,11 @@ function displayBooks() {
       readStatus.checked = true;
     }
   })
+}
+
+// Delete book items so displayBooks() can re-loop
+function deleteLibraryItems() {
+  libraryContainer.querySelectorAll('*').forEach(element => element.remove());
 }
 
 // Modal functions
