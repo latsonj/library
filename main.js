@@ -45,6 +45,8 @@ function displayBooks() {
     let readLabel = document.createElement('label');
     let readStatus = document.createElement('input');
     readStatus.setAttribute('type', 'checkbox');
+    let deleteBookButton = document.createElement('button');
+    deleteBookButton.classList.add('delete-button');
 
     libraryContainer.appendChild(cardContainer);
     cardContainer.appendChild(bookTitle);
@@ -52,6 +54,7 @@ function displayBooks() {
     cardContainer.appendChild(bookPages);
     cardContainer.appendChild(readLabel);
     cardContainer.appendChild(readStatus);
+    cardContainer.appendChild(deleteBookButton);
 
     bookTitle.textContent = book.title;
     bookAuthor.textContent = 'Author: ' + book.author;
@@ -59,6 +62,7 @@ function displayBooks() {
     readStatus.setAttribute('id', bookTitle.textContent.toLowerCase().replaceAll(' ', '-'));
     readLabel.textContent = 'Read: ';
     readLabel.htmlFor = bookTitle.textContent.toLowerCase().replaceAll(' ', '-');
+    deleteBookButton.textContent = 'Remove';
     
     if (book.haveRead === true) {
       readStatus.checked = true;
@@ -86,3 +90,8 @@ closeButton.addEventListener('click', closeModal);
 displayBooks();
 
 submitButton.addEventListener('click', addBookToLibrary);
+
+// Close button remove from array
+// Check index
+// Find data-index on DOM
+// Wipe DOM
