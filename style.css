@@ -21,6 +21,10 @@ input, textarea, button, select {
   font: inherit;
 }
 
+.delete-button {
+  display: block;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
