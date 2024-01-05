@@ -7,6 +7,8 @@ const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('dialog');
 let libraryContainer = document.querySelector('.library-container');
 
+let input = document.querySelector('input');
+
 // Book constructor
 function Book(title, author, pages, haveRead) {
   this.title = title.value;
@@ -47,6 +49,10 @@ function displayBooks() {
     readStatus.setAttribute('type', 'checkbox');
     let deleteBookButton = document.createElement('button');
     deleteBookButton.classList.add('delete-button');
+    deleteBookButton.addEventListener('click', deleteBook);
+
+
+    readStatus.addEventListener('click', tester);
 
     libraryContainer.appendChild(cardContainer);
     cardContainer.appendChild(bookTitle);
@@ -70,6 +76,12 @@ function displayBooks() {
   })
 }
 
+function deleteBook(event) {
+  myLibrary.splice(event.target.parentNode.dataset.index - 1, 1);
+  event.target.parentNode.remove();
+  displayBooks();
+}
+
 // Delete book items so displayBooks() can re-loop
 function deleteLibraryItems() {
   libraryContainer.querySelectorAll('*').forEach(element => element.remove());
@@ -82,6 +94,11 @@ function showModal() {
 
 function closeModal() {
   dialog.close();
+}
+
+function tester(event) {
+  console.log(myLibrary);
+  console.log(event.target.parentNode.dataset.index);
 }
 
 submitButton.addEventListener('click', (event) => event.preventDefault());
