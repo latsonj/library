@@ -13,7 +13,6 @@
     <h1 class="heading">Library</h1>
     <button class="add-book-button">+ Add new book</button>
     <dialog>
-      <button type="button" class="close-dialog-button">Close</button>
       <form action="#" method="get">
         <p>
           <label for="book-title">Title: </label>
@@ -25,14 +24,15 @@
         </p>
         <p>
           <label for="book-pages">Pages: </label>
-          <input type="text" id="book-pages" name="book-pages">
+          <input type="number" id="book-pages" name="book-pages">
         </p>
         <p>
           <label for="read-status">Check if read: </label>
           <input type="checkbox" id="read-status" name="read-status">
         </p>
-        <button type="submit" class="submit-button">Submit</button>
       </form>
+      <button type="submit" class="submit-button">Submit</button>
+      <button type="button" class="close-dialog-button">Close</button>
     </dialog>
   </div>
 

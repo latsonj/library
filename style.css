@@ -55,12 +55,12 @@ dialog button {
   padding: 5px 10px;
 }
 
-dialog button:first-child {
-  margin: 1rem 0 0 1rem;
+.submit-button {
+  margin: 1rem;
 }
 
-dialog button:last-child {
-  margin: 0 0 1rem 1rem;
+.close-dialog-button {
+  margin: 1rem 0.62rem 1rem;
 }
 
 .library-container {
