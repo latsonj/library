@@ -23,6 +23,9 @@ input, textarea, button, select {
 
 .delete-button {
   display: block;
+  padding: 2px 2px;
+
+  font-size: 1rem;
 }
 
 .header {
