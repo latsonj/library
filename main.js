@@ -103,7 +103,13 @@ function closeModal() {
   dialog.close();
 }
 
+function clearDialog() {
+  dialog.querySelectorAll('input').forEach((input) => input.value = '');
+}
+
 submitButton.addEventListener('click', (event) => event.preventDefault());
 submitButton.addEventListener('click', addBookToLibrary);
+submitButton.addEventListener('click', clearDialog);
 addBookButton.addEventListener('click', showModal);
 closeButton.addEventListener('click', closeModal);
+closeButton.addEventListener('click', clearDialog);
