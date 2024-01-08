@@ -14,7 +14,7 @@ function Book(title, author, pages, haveRead) {
   this.title = title.value;
   this.author = author.value;
   this.pages = pages.value;
-  this.haveRead = haveRead.checked;
+  this.haveRead = haveRead;
 }
 
 // Submit button magic
@@ -24,11 +24,9 @@ function addBookToLibrary() {
   let userPages = document.querySelector('#book-pages'); 
   let userReadStatus = document.querySelector('#read-status');
 
-  myLibrary.push(new Book(userTitle, userAuthor, userPages, userReadStatus));
-  console.log(myLibrary);
-  console.log(libraryContainer);
+  myLibrary.push(new Book(userTitle, userAuthor, userPages, userReadStatus.checked));
   displayBooks();
-  dialog.close();
+  closeModal();
 }
 
 // Loops through array and displays book objects on webpage
@@ -41,18 +39,20 @@ function displayBooks() {
     let cardContainer = document.createElement('div');
     cardContainer.classList.add('book-card');
     cardContainer.setAttribute('data-index', myLibrary.indexOf(book) + 1);
+
     let bookTitle = document.createElement('h2');
     let bookAuthor = document.createElement('p');
     let bookPages = document.createElement('p');
+
     let readLabel = document.createElement('label');
     let readStatus = document.createElement('input');
     readStatus.setAttribute('type', 'checkbox');
+
     let deleteBookButton = document.createElement('button');
     deleteBookButton.classList.add('delete-button');
+
     deleteBookButton.addEventListener('click', deleteBook);
-
-
-    readStatus.addEventListener('click', tester);
+    readStatus.addEventListener('click', changeReadStatus);
 
     libraryContainer.appendChild(cardContainer);
     cardContainer.appendChild(bookTitle);
@@ -65,8 +65,10 @@ function displayBooks() {
     bookTitle.textContent = book.title;
     bookAuthor.textContent = 'Author: ' + book.author;
     bookPages.textContent = 'Pages: ' + book.pages;
+
     readStatus.setAttribute('id', bookTitle.textContent.toLowerCase().replaceAll(' ', '-'));
     readLabel.textContent = 'Read: ';
+    
     readLabel.htmlFor = bookTitle.textContent.toLowerCase().replaceAll(' ', '-');
     deleteBookButton.textContent = 'Remove';
     
@@ -74,6 +76,11 @@ function displayBooks() {
       readStatus.checked = true;
     }
   })
+}
+
+function changeReadStatus(event) {
+  let book = myLibrary[event.target.parentNode.dataset.index - 1];
+  book.haveRead = !book.haveRead;
 }
 
 function deleteBook(event) {
@@ -96,19 +103,7 @@ function closeModal() {
   dialog.close();
 }
 
-function tester(event) {
-  console.log(myLibrary);
-  console.log(event.target.parentNode.dataset.index);
-}
-
 submitButton.addEventListener('click', (event) => event.preventDefault());
+submitButton.addEventListener('click', addBookToLibrary);
 addBookButton.addEventListener('click', showModal);
 closeButton.addEventListener('click', closeModal);
-displayBooks();
-
-submitButton.addEventListener('click', addBookToLibrary);
-
-// Close button remove from array
-// Check index
-// Find data-index on DOM
-// Wipe DOM
