@@ -1,5 +1,19 @@
+let frankenstein = {
+  title: 'Frankenstein',
+  author: 'Mary Shelley',
+  pages: 260,
+  haveRead: false,
+}
+
+let gameOfThrones = {
+  title: 'A Game of Thrones',
+  author: 'George R. R. Martin',
+  pages: '694',
+  haveRead: true,
+}
+
 // Library array to loop books from
-const myLibrary = [];
+const myLibrary = [frankenstein, gameOfThrones];
 
 const addBookButton = document.querySelector('.add-book-button');
 const closeButton = document.querySelector('.close-dialog-button');
@@ -113,3 +127,9 @@ submitButton.addEventListener('click', clearDialog);
 addBookButton.addEventListener('click', showModal);
 closeButton.addEventListener('click', closeModal);
 closeButton.addEventListener('click', clearDialog);
+
+displayBooks();
+
+// Required inputs
+// Enter to submit esc to escape
+// Styling page
