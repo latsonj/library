@@ -17,11 +17,9 @@ const myLibrary = [frankenstein, gameOfThrones];
 
 const addBookButton = document.querySelector('.add-book-button');
 const closeButton = document.querySelector('.close-dialog-button');
-const submitButton = document.querySelector('.submit-button');
+const bookForm = document.querySelector('form');
 const dialog = document.querySelector('dialog');
 let libraryContainer = document.querySelector('.library-container');
-
-let input = document.querySelector('input');
 
 // Book constructor
 function Book(title, author, pages, haveRead) {
@@ -121,15 +119,13 @@ function clearDialog() {
   dialog.querySelectorAll('input').forEach((input) => input.value = '');
 }
 
-submitButton.addEventListener('click', (event) => event.preventDefault());
-submitButton.addEventListener('click', addBookToLibrary);
-submitButton.addEventListener('click', clearDialog);
+bookForm.addEventListener('submit', (event) => event.preventDefault());
+bookForm.addEventListener('submit', addBookToLibrary);
+bookForm.addEventListener('submit', clearDialog);
 addBookButton.addEventListener('click', showModal);
 closeButton.addEventListener('click', closeModal);
 closeButton.addEventListener('click', clearDialog);
 
 displayBooks();
 
-// Required inputs
-// Enter to submit esc to escape
 // Styling page
