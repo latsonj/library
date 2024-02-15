@@ -16,23 +16,23 @@
       <form action="#" method="get">
         <p>
           <label for="book-title">Title: </label>
-          <input type="text" id="book-title" name="book-title">
+          <input type="text" id="book-title" name="book-title" required>
         </p>
         <p>
           <label for="book-author">Author: </label>
-          <input type="text" id="book-author" name="book-author">
+          <input type="text" id="book-author" name="book-author" required>
         </p>
         <p>
           <label for="book-pages">Pages: </label>
-          <input type="number" id="book-pages" name="book-pages">
+          <input type="number" id="book-pages" name="book-pages" required>
         </p>
         <p>
           <label for="read-status">Check if read: </label>
           <input type="checkbox" id="read-status" name="read-status">
         </p>
+        <button type="submit" class="submit-button">Submit Book</button>
+        <button type="button" class="close-dialog-button">Close</button>
       </form>
-      <button type="submit" class="submit-button">Submit</button>
-      <button type="button" class="close-dialog-button">Close</button>
     </dialog>
   </div>
 
