@@ -32,6 +32,8 @@ input, textarea, button, select {
   display: flex;
   justify-content: space-between;
   width: max(30%, 400px);
+
+  font-size: 1.2rem;
 }
 
 .add-book-button {
@@ -70,6 +72,8 @@ dialog button {
 .library-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+
+  font-size: 1.2rem;
 }
 
 .book-card {
@@ -88,7 +92,7 @@ dialog button {
 
 dialog {
   border: none;
-  font-size: 1.65rem;
+  font-size: 1.15rem;
 }
 
 dialog,
